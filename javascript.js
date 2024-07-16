@@ -25,7 +25,7 @@ function getComputerChoice() {
   console.log(`Computer picked ${computerChoice}.`);
   return computerChoice;
 }
-
+function playGame(){
 let humanScore = 0;
 let computerScore = 0;
 
@@ -45,9 +45,20 @@ function playRound(humanChoice, computerChoice) {
   }
   console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
 }
+for (let i = 0; i < 5; i++) {
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+  playRound(humanSelection, computerSelection);
+}
+if (humanScore > computerScore) {
+  console.log(`You win the game! Final score: Human ${humanScore} - Computer ${computerScore}`);
+} else if (humanScore < computerScore) {
+  console.log(`You lose the game. Final score: Human ${humanScore} - Computer ${computerScore}`);
+} else {
+  console.log(`The game is a draw. Final score: Human ${humanScore} - Computer ${computerScore}`);
+}
+}
 
 
-const humanSelection = getHumanChoice(); 
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
+playGame();
 
